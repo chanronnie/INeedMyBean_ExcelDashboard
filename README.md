@@ -43,15 +43,15 @@ This helps reducing data redundancy, thereby generating a more representative ba
 
 ```EXCEL
 =QUERY(
-      WorkingSheet!13:149129,
-      "select
-            O,
-            SUM(G),
-            SUM(Q)
-        where L = '"&J12&"'
+      WorkingSheet!13:149129,                                -- dataset
+      "select                                                    
+            O,                                               -- "item" column
+            SUM(G),                                          -- "transaction_qty" column
+            SUM(Q)                                           -- "sales" column
+        where L = '"&J12&"'                                  -- where "category" is the category selected by the user
         group by O 
         order by SUM(G) DESC
-        label O 'Items', SUM(G) 'Orders', SUM(Q) 'Sales'
+        label O 'Items', SUM(G) 'Orders', SUM(Q) 'Sales'     -- rename columns
       "
 )
 ```
