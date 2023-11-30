@@ -37,28 +37,28 @@ This helps reducing data redundancy, thereby generating a more representative ba
 
 3. **For the heatmap**, I created a separate worksheet to allow uniform resizing of columns and rows into narrower squares. By utilizing `SUMIFS`, conditional formatting, and number format customization, I successfully built a heatmap for the sales breakdown across both `hours` and `days of the week`. *(Note that heatmap chart is not available in Google Sheets)*
 
-4. **To compare categories**, I used a horizontal bar chart and arranged the categories in descending order. Once again, the bar/category with the highest count of orders has been colored in a darker tone.
+4. **To compare categories**, I used a horizontal bar chart and arranged the categories in descending order. Once again, the bar/category with the highest quantity sold has been colored in a darker tone.
 
-5. **For displaying items within the selected category**, I opted for the **`QUERY`** function instead of Pivot Tables. This function is more flexible and performs better. With just one formula, I can display three pieces of information (`items`, `orders`, and `sales`) for the selected category:
+5. **For displaying items within the selected category**, I opted for the **`QUERY`** function instead of Pivot Tables. This function is more flexible and performs better. With just one formula, I can display three pieces of information (`Items`, `Quantity`, and `Sales`) for the selected category:
 
 ```EXCEL
 =QUERY(
       WorkingSheet!13:149129,                                -- dataset
       "select                                                    
             O,                                               -- "item" column
-            SUM(G),                                          -- "transaction_qty" column
-            SUM(Q)                                           -- "sales" column
+            SUM(G),                                          -- sum of the "transaction_qty" column
+            SUM(Q)                                           -- sum of the "sales" column
         where L = '"&J12&"'                                  -- where "category" is the category selected by the user
-        group by O 
-        order by SUM(G) DESC
-        label O 'Items', SUM(G) 'Orders', SUM(Q) 'Sales'     -- rename columns
+        group by O                                           
+        order by SUM(G) DESC                                 -- sort the output by total quantity in descending order
+        label O 'Items', SUM(G) 'Quantity', SUM(Q) 'Sales'   -- rename columns
       "
 )
 ```
 
 Here is a preview of the query output for the selected category **Branded**.
 
-Items	| Orders | Sales
+Items	| Quantity | Sales
 --- | --- | ---
 I Need My Bean! Latte cup | 315 | $4,509
 I Need My Bean! Diner mug | 240 | $2,935
