@@ -1,5 +1,6 @@
 
-<img width="805" alt="CoffeeSales_DASHBOARD" src="https://github.com/chanronnie/Coffee_Shop_Dashboard/assets/121308347/9b59bad9-4333-46f9-981a-b3d02343e331">
+![coffee](https://github.com/chanronnie/INeedMyBeans_ExcelDashboard/assets/121308347/34cbaceb-33fc-466a-ac7a-eb91fd517c8d)
+
 
 ## About this project
 
