@@ -24,24 +24,24 @@ The data used is fictional and sourced from *Maven Analytics*. It contains order
 - [CoffeeSales_WORKBOOK.xlsx](CoffeeSales_WORKBOOK.xlsx): This worbook includes my data analysis along with the dashboard.
 
 ## Approach
-The initial step involves performing data cleaning on the dataset. Surprisingly, there are no duplicated transaction records in the dataset. The next step is to split the transaction_date column into Month, Day of Week, and Hour. Additionally, I separated the product_detail column into item and size (Sm, Rg, Lg) using the following formula (including whitespace trimming):
+The initial step involves performing data cleaning on the dataset. Surprisingly, there are no duplicated transaction records in the dataset. The next step is to split the `transaction_date` column into `Month`, `Day of Week`, and `Hour`. Additionally, I separated the `product_detail` column into `item` and `size` (Sm, Rg, Lg) using the following formula (including whitespace trimming):
 
-```
+```EXCEL
 =IF(OR(RIGHT(N2,2)="Sm",RIGHT(N2,2)="Rg",RIGHT(N2,2)="Lg"),RIGHT(N2,2)," ")
 ```
 This helps reducing data redundancy, thereby generating a more representative bar chart.
 
-For the Key Performance Indicators (KPIs), I chose to display the total sales, total transactions, and the number of coffees sold, along with their corresponding charts illustrating monthly trends from January to June 2023.
+1. **For the KPIs**, I chose to display the total sales, total transactions, and the number of coffees sold, along with their corresponding charts illustrating monthly trends from January to June 2023.
 
-To represent the sales breakdown by the hour of the day and by days of the week, I used bar charts to track sales, highlighting the peak sales period with a darker color.
+2. **To represent the sales breakdown** by the hour of the day and by days of the week, I used bar charts to track sales, highlighting the peak sales period with a darker color.
 
-For the heatmap, I created a separate worksheet to allow uniform resizing of columns and rows into narrower squares. By utilizing SUMIFS, conditional formatting, and number format customization, I successfully built a heatmap for the sales breakdown across both hours and days.
+3. **For the heatmap**, I created a separate worksheet to allow uniform resizing of columns and rows into narrower squares. By utilizing `SUMIFS`, conditional formatting, and number format customization, I successfully built a heatmap for the sales breakdown across both `hours` and `days of the week`. *(Note that heatmap chart is not available in Google Sheets)*
 
-To compare categories, I used a horizontal bar chart and arranged the categories in descending order. Once again, the bar/category with the highest count of orders has been colored in a darker tone.
+4. **To compare categories**, I used a horizontal bar chart and arranged the categories in descending order. Once again, the bar/category with the highest count of orders has been colored in a darker tone.
 
-For displaying items within the selected category, I opted for the QUERY function instead of Pivot Tables. This function is more flexible and performs better. With just one formula, I can display three pieces of information (items, orders, and sales) for the selected category:
+5. **For displaying items within the selected category**, I opted for the **`QUERY`** function instead of Pivot Tables. This function is more flexible and performs better. With just one formula, I can display three pieces of information (`items`, `orders`, and `sales`) for the selected category:
 
-```google sheets
+```EXCEL
 =QUERY(
       WorkingSheet!13:149129,
       "select
@@ -55,6 +55,15 @@ For displaying items within the selected category, I opted for the QUERY functio
       "
 )
 ```
+
+Here is a preview of the query output for the selected category **Branded**.
+
+Items	| Orders | Sales
+--- | --- | ---
+I Need My Bean! Latte cup | 315 | $4,509
+I Need My Bean! Diner mug | 240 | $2,935
+I Need My Bean! T-shirt | 221 | $6,163
+
 
 ## Key Findings
 - Sales and Transactions exhibit a positive trend as the months progress.
