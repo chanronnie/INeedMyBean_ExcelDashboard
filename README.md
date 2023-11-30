@@ -1,5 +1,5 @@
 
-![coffee](https://github.com/chanronnie/INeedMyBeans_ExcelDashboard/assets/121308347/34cbaceb-33fc-466a-ac7a-eb91fd517c8d)
+![CoffeeSales](https://github.com/chanronnie/INeedMyBeans_ExcelDashboard/assets/121308347/fbcf7d38-9d9c-4ed9-87a2-5a0ed49f6c53)
 
 
 ## About this project
