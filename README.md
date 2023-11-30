@@ -43,7 +43,7 @@ This helps reducing data redundancy, thereby generating a more representative ba
 
 ```EXCEL
 =QUERY(
-      WorkingSheet!13:149129,                                -- dataset
+      WorkingSheet!1:149117,                                 -- dataset
       "select                                                    
             O,                                               -- "item" column
             SUM(G),                                          -- sum of the "transaction_qty" column
