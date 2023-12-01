@@ -1,15 +1,16 @@
 
-![CoffeeSales](https://github.com/chanronnie/INeedMyBeans_ExcelDashboard/assets/121308347/fbcf7d38-9d9c-4ed9-87a2-5a0ed49f6c53)
+![CoffeeSales](https://github.com/chanronnie/INeedMyBeans_ExcelDashboard/assets/121308347/fe4cba22-363a-4fca-bcb4-d9d31171a56b)
+
 
 
 ## About this project
 
 **Objective**:<br>
-The goal of this project is to create a dashboard that displays the overall sales figures and performance of the fictional coffee shop *I Need My Beans!* to the owners.
+The goal of this project is to create a dashboard that displays the overall sales figures and performance of the fictional coffee shop *Maven Roasters* to the business owners.
 The end-users (the owners) should be able to identify:
 - the monthly sales and transaction trends
 - the peak sales period
-- the best-selling menu items by orders
+- the best-selling menu items by quantity sold
 
 
 **Data Source**:<br>
