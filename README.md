@@ -25,22 +25,22 @@ The data used is fictional and sourced from *Maven Analytics*. It contains order
 - [CoffeeSales_WORKBOOK.xlsx](CoffeeSales_WORKBOOK.xlsx): This worbook includes my data analysis along with the dashboard.
 
 ## Approach
-The initial step involves performing data cleaning on the dataset. Surprisingly, there are no duplicated transaction records in the dataset. The next step is to split the `transaction_date` column into `Month`, `Day of Week`, and `Hour`. Additionally, I separated the `product_detail` column into `item` and `size` (Sm, Rg, Lg) using the following formula (including whitespace trimming):
+1. The initial step involves performing data cleaning on the dataset. Surprisingly, there are no duplicated transaction records in the dataset. The next step is to split the `transaction_date` column into `Month`, `Day of Week`, and `Hour`. Additionally, I separated the `product_detail` column into `item` and `size` (Sm, Rg, Lg) using the following formula (including whitespace trimming). This helps reducing data redundancy.
 
 ```EXCEL
 =IF(OR(RIGHT(N2,2)="Sm",RIGHT(N2,2)="Rg",RIGHT(N2,2)="Lg"),RIGHT(N2,2)," ")
 ```
-This helps reducing data redundancy, thereby generating a more representative bar chart.
 
-1. **For the KPIs**, I chose to display the total sales, total transactions, and the number of coffees sold, along with their corresponding charts illustrating monthly trends from January to June 2023.
 
-2. **To represent the sales breakdown** by the hour of the day and by days of the week, I used bar charts to track sales, highlighting the peak sales period with a darker color.
+2. **For the KPIs**, I chose to display the total sales, total transactions, and the number of coffees sold, along with their corresponding charts illustrating monthly trends from January to June 2023.
 
-3. **For the heatmap**, I created a separate worksheet to allow uniform resizing of columns and rows into narrower squares. By utilizing `SUMIFS`, conditional formatting, and number format customization, I successfully built a heatmap for the sales breakdown across both `hours` and `days of the week`. *(Note that heatmap chart is not available in Google Sheets)*
+3. **To represent the sales breakdown** by the hour of the day and by days of the week, I used bar charts to track sales, highlighting the peak sales period with a darker color.
 
-4. **To compare categories**, I used a horizontal bar chart and arranged the categories in descending order. Once again, the bar/category with the highest quantity sold has been colored in a darker tone.
+4. **For the heatmap**, I created a separate worksheet to allow uniform resizing of columns and rows into narrower squares. By utilizing `SUMIFS`, conditional formatting, and number format customization, I successfully built a heatmap for the sales breakdown across both `hours` and `days of the week`. *(Note that heatmap chart is not available in Google Sheets)*
 
-5. **For displaying items within the selected category**, I opted for the **`QUERY`** function instead of Pivot Tables. This function is more flexible and performs better. With just one formula, I can display three pieces of information (`Items`, `Quantity`, and `Sales`) for the selected category:
+5. **To compare categories**, I used a horizontal bar chart and arranged the categories in descending order. Once again, the bar/category with the highest quantity sold has been colored in a darker tone.
+
+6. **For displaying items within the selected category**, I opted for the **`QUERY`** function instead of Pivot Tables. This function is more flexible and performs better with a dynamic drop-down list. With just one formula, I can display three pieces of information (`Items`, `Quantity`, and `Sales`) for the selected category:
 
 ```EXCEL
 =QUERY(
