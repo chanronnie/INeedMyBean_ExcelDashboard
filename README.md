@@ -16,6 +16,10 @@ The end-users (the owners) should be able to identify:
 **Data Source**:<br>
 The data used is fictional and sourced from *Maven Analytics*. It contains order details of all transactions recorded from January to June 2023.
 
+**Link**:<br>
+View my project: [here](https://mavenanalytics.io/project/10673)
+
+
 ## Tool Used
 ![Google Sheets](https://img.shields.io/badge/Google_Sheets-217346?style=for-the-badge&logo=google-sheets&logoColor=white)
 
